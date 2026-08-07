@@ -344,6 +344,8 @@
     "edit_pals.clone_bulk_no_space": "{count} Klone erstellt, danach waren keine freien Plätze mehr übrig.",
     "edit_pals.clone_bulk_full": "Es sind keine freien Plätze mehr vorhanden.",
     "edit_pals.clone_bulk_base_unsupported": "Massenklonen ist für Basis-Pals noch nicht verfügbar. Nutze Klonen bei einem einzelnen Pal.",
+    "edit_pals.clone_storage_full": "In diesem Lager sind keine freien Plätze mehr vorhanden.",
+    "edit_pals.clone_done_slot": "Pal auf Platz {slot} geklont.",
     "edit_pals.ctx.create_new": "Neuen Pal erstellen",
     "edit_pals.ctx.delete": "Löschen",
     "edit_pals.ctx.edit": "Pal bearbeiten",

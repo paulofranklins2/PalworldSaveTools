@@ -610,6 +610,8 @@
     "edit_pals.clone_bulk_no_space": "{count} clones criados; depois esgotaram-se os espaços livres.",
     "edit_pals.clone_bulk_full": "Não há mais espaços livres.",
     "edit_pals.clone_bulk_base_unsupported": "Clonar em massa ainda não está disponível para pals de base. Use Clonar num pal individual.",
+    "edit_pals.clone_storage_full": "Não há espaços livres neste armazenamento.",
+    "edit_pals.clone_done_slot": "Pal clonado no espaço {slot}.",
     "edit_pals.ctx.create_new": "Criar Novo Pal",
     "edit_pals.ctx.delete": "Eliminar",
     "edit_pals.ctx.edit": "Editar Pal",

@@ -10,6 +10,7 @@
 - **Save errors no longer hide behind "Saved successfully"** — if writing the save fails, a full error screen with details and a copy button appears instead of a false success message.
 - **Importing bases into a real save no longer fails** — the support check that treated normally-placed structures as unsupported has been relaxed, so existing bases import without being blocked.
 - **Newer work records now decode correctly** — the work entries the game creates for multi-recipe workbenches and fish ponds used to show up as unreadable raw data. They now load like any other work and roundtrip byte-for-byte, so editing, validation, and reference checks see every work in the save.
+<<<<<<< HEAD
 - **Select All button for pals** — Global Pal Storage and the Pal Editor box both got a "Select All" button that picks every pal at once, across every page, so bulk actions like Max, Feed Food, Heal, Rename and Delete can be applied to the whole storage in one click. Clicking it again clears the selection, and a multi-selection now stays highlighted correctly when you flip between pages.
 - **Importing several pal files at once actually imports them all** — picking multiple .pstpal or .json files used to leave you with just one pal, because every file was written into the same slot. Each pal now lands in its own free slot, in the palbox, party, DPS storage and Global Pal Storage alike, and the success message reports how many really came in. If the free slots run out mid-import, you're told how many made it.
 - **Give every pal all skills in one click** — a new "All Skills" button sits next to Restore All and Max All in both the Pal Editor and Global Pal Storage, teaching every move to all pals at once; with Cheat mode on it also grants every passive skill. The same action is available as a "Skills" button on the multi-select toolbar when you only want it applied to the pals you picked.
@@ -22,6 +23,9 @@
 - **Right-clicking a pal keeps your selection** — selecting several pals and then right-clicking one used to clear the whole selection and leave only the pal under the cursor, so anything you picked from the menu applied to that one pal. The selection now survives the right-click.
 - **Drag pals between slots** — you can now pick a pal up and drop it on another slot to rearrange your storage. Dropping it on an empty slot moves it there, dropping it on another pal swaps the two. Works in Global Pal Storage, the palbox, DPS storage and your party, and the new positions are saved so the game sees the same order. Dragging is limited to the grid you started in, so a pal cannot accidentally be dropped into a different storage.
 - **Clone now copies every pal you selected** — with several pals selected, picking Clone from the right-click menu only ever copied one of them. It now makes one copy of each selected pal. Clone Bulk is still there when you want more than one copy each, and selecting a single pal works exactly as before.
+=======
+- **Cloning a pal no longer stops at a full page** — right-clicking Clone used to only look at the page you were viewing, so a full page reported "no empty slot" even when the rest of your storage was empty. It now uses the first free slot anywhere in that storage, reusing gaps before the end, and jumps the view to wherever the copy landed so you can see it. You are only told the storage is full when it genuinely is. Applies to the palbox, party, DPS storage and Global Pal Storage.
+>>>>>>> fix/clone-next-free-slot
 - Bumped version to 2.3.3
 
 #2.3.2

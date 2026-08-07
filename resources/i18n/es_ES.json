@@ -334,6 +334,8 @@
     "edit_pals.clone_bulk_no_space": "Se crearon {count} clones y se acabaron las ranuras libres.",
     "edit_pals.clone_bulk_full": "No quedan ranuras libres.",
     "edit_pals.clone_bulk_base_unsupported": "El clonado masivo aún no está disponible para Pals de base. Usa Clonar en un Pal individual.",
+    "edit_pals.clone_storage_full": "No quedan ranuras libres en este almacenamiento.",
+    "edit_pals.clone_done_slot": "Pal clonado en la ranura {slot}.",
     "edit_pals.ctx.create_new": "Crear nuevo Pal",
     "edit_pals.ctx.delete": "Eliminar",
     "edit_pals.ctx.edit": "Editar Pal",

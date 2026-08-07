@@ -805,15 +805,9 @@ class GpsEditorDialog(FramelessDialog):
             if len(selected) > 1:
                 self._clone_each_selected(selected)
                 return
-            empty_idx = None
-            start_page = (self.current_page - 1) * PAGE_SIZE
-            for offset in range(PAGE_SIZE):
-                ai = start_page + offset
-                if ai not in self.pals:
-                    empty_idx = ai
-                    break
+            empty_idx = self._next_free_gps_slot(0)
             if empty_idx is None:
-                show_warning(self, 'Clone', 'No empty slot on this page.')
+                show_warning(self, t('edit_pals.ctx.clone'), t('edit_pals.clone_storage_full'))
                 return
             new_raw = copy.deepcopy(raw)
             from palworld_aio.managers.func_manager import _restore_one_pal
@@ -826,8 +820,9 @@ class GpsEditorDialog(FramelessDialog):
             if self._set_gps_slot(empty_idx, new_raw):
                 self.pals[empty_idx] = {'data': new_raw}
                 self._mark_modified()
+                self.current_page = empty_idx // PAGE_SIZE + 1
                 self._update_page()
-                show_information(self, 'Clone', 'GPS pal cloned.')
+                show_information(self, t('edit_pals.ctx.clone'), t('edit_pals.clone_done_slot', slot=empty_idx + 1))
 
         elif action == 'export_pal' and raw:
             cid = extract_value(raw, 'CharacterID', 'None')
