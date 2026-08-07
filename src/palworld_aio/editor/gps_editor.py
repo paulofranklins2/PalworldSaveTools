@@ -805,7 +805,7 @@ class GpsEditorDialog(FramelessDialog):
             if len(selected) > 1:
                 self._clone_each_selected(selected)
                 return
-            empty_idx = self._next_free_gps_slot(0)
+            empty_idx = self._next_free_gps_slot((self.current_page - 1) * PAGE_SIZE)
             if empty_idx is None:
                 show_warning(self, t('edit_pals.ctx.clone'), t('edit_pals.clone_storage_full'))
                 return
@@ -1018,7 +1018,7 @@ class GpsEditorDialog(FramelessDialog):
             if clone_nick:
                 template['NickName'] = {'id': None, 'type': 'StrProperty', 'value': clone_nick}
             for _ in range(count):
-                idx = self._next_free_gps_slot(0)
+                idx = self._next_free_gps_slot((self.current_page - 1) * PAGE_SIZE)
                 if idx is None:
                     out_of_space = True
                     break

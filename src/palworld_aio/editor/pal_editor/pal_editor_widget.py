@@ -727,7 +727,7 @@ class PalEditorWidget(QWidget, BulkOperationMixin):
         if not source_raw:
             return
         import copy
-        empty_idx = next((i for i in range(self.dps_total_slots) if i not in self.dps_pals), None)
+        empty_idx = self._next_free_dps_slot((self.current_box_index - 1) * 30)
         if empty_idx is None:
             show_warning(self, t('edit_pals.ctx.clone'), t('edit_pals.clone_storage_full'))
             return
@@ -845,7 +845,7 @@ class PalEditorWidget(QWidget, BulkOperationMixin):
             container_id = self.party_container
         else:
             total = max(getattr(self, 'total_slots', 960), 30)
-            abs_index = next((i for i in range(total) if i not in self.palbox_pal_dict), None)
+            abs_index = self._next_free_pal_slot((self.current_box_index - 1) * 30, False)
             container_id = self.palbox_container
         if abs_index is None:
             show_warning(self, t('edit_pals.ctx.clone'), t('edit_pals.clone_storage_full'))
@@ -1112,7 +1112,7 @@ class PalEditorWidget(QWidget, BulkOperationMixin):
             source_raw = copy.deepcopy(source_raw)
             for _ in range(count):
                 if is_dps:
-                    idx = self._next_free_dps_slot(0)
+                    idx = self._next_free_dps_slot((self.current_box_index - 1) * 30)
                     if idx is None:
                         out_of_space = True
                         break
@@ -1122,7 +1122,7 @@ class PalEditorWidget(QWidget, BulkOperationMixin):
                         break
                     self.dps_pals[idx] = made_pal
                 else:
-                    idx = self._next_free_pal_slot(0, is_party)
+                    idx = self._next_free_pal_slot(0 if is_party else (self.current_box_index - 1) * 30, is_party)
                     if idx is None:
                         out_of_space = True
                         break
